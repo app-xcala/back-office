@@ -18,7 +18,15 @@ module.exports = withTM({
         {
           loader: '@svgr/webpack',
           options: {
-            svgoConfig: { plugins: [{ removeViewBox: false }] }
+            svgoConfig: { plugins: [{
+              name: 'preset-default',
+              params: {
+                overrides: {
+                  // disable plugins
+                  removeViewBox: false,
+                },
+              },
+            },] }
           }
         }
       ]
