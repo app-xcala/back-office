@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types';
-import { useDropzone } from 'react-dropzone';
+import PropTypes from "prop-types";
+import { useDropzone } from "react-dropzone";
 import {
   Box,
   Button,
@@ -10,11 +10,11 @@ import {
   ListItemIcon,
   ListItemText,
   Tooltip,
-  Typography
-} from '@mui/material';
-import { Duplicate as DuplicateIcon } from '../icons/duplicate';
-import { X as XIcon } from '../icons/x';
-import { bytesToSize } from '../utils/bytes-to-size';
+  Typography,
+} from "@mui/material";
+import { Duplicate as DuplicateIcon } from "../icons/duplicate";
+import { X as XIcon } from "../icons/x";
+import { bytesToSize } from "../utils/bytes-to-size";
 
 export const FileDropzone = (props) => {
   const {
@@ -47,60 +47,53 @@ export const FileDropzone = (props) => {
     maxFiles,
     maxSize,
     minSize,
-    onDrop
+    onDrop,
   });
 
   return (
     <div {...other}>
       <Box
         sx={{
-          alignItems: 'center',
+          alignItems: "center",
           border: 1,
           borderRadius: 1,
-          borderStyle: 'dashed',
-          borderColor: 'divider',
-          display: 'flex',
-          flexWrap: 'wrap',
-          justifyContent: 'center',
-          outline: 'none',
+          borderStyle: "dashed",
+          borderColor: "divider",
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "center",
+          outline: "none",
           p: 6,
           ...(isDragActive && {
-            backgroundColor: 'action.active',
-            opacity: 0.5
+            backgroundColor: "action.active",
+            opacity: 0.5,
           }),
-          '&:hover': {
-            backgroundColor: 'action.hover',
-            cursor: 'pointer',
-            opacity: 0.5
-          }
+          "&:hover": {
+            backgroundColor: "action.hover",
+            cursor: "pointer",
+            opacity: 0.5,
+          },
         }}
-        {...getRootProps()}>
+        {...getRootProps()}
+      >
         <input {...getInputProps()} />
         <Box
           sx={{
-            '& img': {
-              width: 100
-            }
+            "& img": {
+              width: 100,
+            },
           }}
         >
-          <img
-            alt="Select file"
-            src="/static/undraw_add_file2_gvbb.svg"
-          />
+          <img alt="Select file" src="/static/undraw_add_file2_gvbb.svg" />
         </Box>
         <Box sx={{ p: 2 }}>
           <Typography variant="h6">
-            {`Select file${(maxFiles && maxFiles === 1) ? '' : 's'}`}
+            {`Select file${maxFiles && maxFiles === 1 ? "" : "s"}`}
           </Typography>
           <Box sx={{ mt: 2 }}>
             <Typography variant="body1">
-              {`Drop file${(maxFiles && maxFiles === 1) ? '' : 's'}`}
-              {' '}
-              <Link underline="always">
-                browse
-              </Link>
-              {' '}
-              thorough your machine
+              {`Drop file${maxFiles && maxFiles === 1 ? "" : "s"}`}{" "}
+              <Link underline="always">browse</Link> thorough your machine
             </Typography>
           </Box>
         </Box>
@@ -113,11 +106,11 @@ export const FileDropzone = (props) => {
                 key={file.path}
                 sx={{
                   border: 1,
-                  borderColor: 'divider',
+                  borderColor: "divider",
                   borderRadius: 1,
-                  '& + &': {
-                    mt: 1
-                  }
+                  "& + &": {
+                    mt: 1,
+                  },
                 }}
               >
                 <ListItemIcon>
@@ -126,8 +119,8 @@ export const FileDropzone = (props) => {
                 <ListItemText
                   primary={file.name}
                   primaryTypographyProps={{
-                    color: 'textPrimary',
-                    variant: 'subtitle2'
+                    color: "textPrimary",
+                    variant: "subtitle2",
                   }}
                   secondary={bytesToSize(file.size)}
                 />
@@ -144,16 +137,12 @@ export const FileDropzone = (props) => {
           </List>
           <Box
             sx={{
-              display: 'flex',
-              justifyContent: 'flex-end',
-              mt: 2
+              display: "flex",
+              justifyContent: "flex-end",
+              mt: 2,
             }}
           >
-            <Button
-              onClick={onRemoveAll}
-              size="small"
-              type="button"
-            >
+            <Button onClick={onRemoveAll} size="small" type="button">
               Remove All
             </Button>
             <Button
@@ -175,7 +164,7 @@ export const FileDropzone = (props) => {
 FileDropzone.propTypes = {
   accept: PropTypes.oneOfType([
     PropTypes.string,
-    PropTypes.arrayOf(PropTypes.string)
+    PropTypes.arrayOf(PropTypes.string),
   ]),
   disabled: PropTypes.bool,
   files: PropTypes.array,
@@ -194,9 +183,9 @@ FileDropzone.propTypes = {
   onRemove: PropTypes.func,
   onRemoveAll: PropTypes.func,
   onUpload: PropTypes.func,
-  preventDropOnDocument: PropTypes.bool
+  preventDropOnDocument: PropTypes.bool,
 };
 
 FileDropzone.defaultProps = {
-  files: []
+  files: [],
 };
