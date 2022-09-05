@@ -7,6 +7,7 @@ export const ContributionsDropZone = (props) => {
 
   const handleDrop = (newFiles) => {
     setFiles((prevFiles) => [...prevFiles, ...newFiles]);
+    console.log(newFiles)
   };
   const handleRemove = (file) => {
     setFiles((prevFiles) =>
@@ -18,10 +19,22 @@ export const ContributionsDropZone = (props) => {
     setFiles([]);
   };
 
-  const handleSubmit = (files, allFiles) => {
-    console.log("submit");
-    console.log(files)
-    console.log(allFiles)
+  const handleSubmit = () => {
+    console.log("submit ===>", files);
+    setFiles([]);
+  };
+
+  const readFile = (event) => {
+    const file = event.target.files[0];
+    if (!file) return;
+    const fileReader = new FileReader();
+    fileReader.readAsText(file);
+    fileReader.onload = () => {
+      console.log(fileReader.result);
+    };
+    fileReader.onerror = () => {
+      console.log(fileReader.error);
+    };
   };
 
   return (

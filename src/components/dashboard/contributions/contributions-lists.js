@@ -62,11 +62,11 @@ export const ContributionsList = () => (
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell>Location</TableCell>
-              <TableCell>Ending Route</TableCell>
-              <TableCell>Starting Route</TableCell>
-              <TableCell>Warnings</TableCell>
-              <TableCell>Refrigerator Temperature</TableCell>
+              <TableCell>Cliente</TableCell>
+              <TableCell>Contribucion</TableCell>
+              <TableCell>Rut</TableCell>
+              <TableCell>Banco</TableCell>
+              <TableCell>Fondo</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -101,7 +101,7 @@ export const ContributionsList = () => (
                     {vehicle.warning || "No warnings"}
                   </SeverityPill>
                 </TableCell>
-                <TableCell>
+                {/* <TableCell>
                   <LinearProgress
                     value={vehicle.temperature}
                     variant="determinate"
@@ -122,7 +122,7 @@ export const ContributionsList = () => (
                       °C
                     </Typography>
                   </Box>
-                </TableCell>
+                </TableCell> */}
               </TableRow>
             ))}
           </TableBody>

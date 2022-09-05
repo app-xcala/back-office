@@ -354,7 +354,7 @@ export const DashboardSidebar = (props) => {
         >
           <div>
             <Box sx={{ p: 3 }}>
-              <NextLink href="/" passHref>
+              <NextLink href="/dashboard" passHref>
                 <a>
                   <Logo
                     sx={{
@@ -365,7 +365,7 @@ export const DashboardSidebar = (props) => {
                 </a>
               </NextLink>
             </Box>
-            <Box sx={{ px: 2 }}>
+            {/* <Box sx={{ px: 2 }}>
               <Box
                 onClick={handleOpenOrganizationsPopover}
                 ref={organizationsRef}
@@ -396,7 +396,7 @@ export const DashboardSidebar = (props) => {
                   }}
                 />
               </Box>
-            </Box>
+            </Box> */}
           </div>
           <Divider
             sx={{
